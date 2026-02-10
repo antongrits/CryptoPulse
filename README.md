@@ -399,9 +399,6 @@ Caption: Home screen widget variants.
 <img width="166" alt="image" src="https://github.com/user-attachments/assets/8aecb196-6e94-43d4-a4d3-54c9163ecc11" />
 
 
+## Demo video
 
-## Roadmap
-- More advanced background refresh scheduling.
-- Extended analytics overlays for chart mode.
-- Additional portfolio risk metrics.
-- More widget layouts and intent-based deep links.
+▶️ [CryptoPulse — app walkthrough (YouTube)](https://youtu.be/EvhGd2cv4x0)
