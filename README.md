@@ -173,7 +173,7 @@ Behavior:
 - iOS 15: custom line chart (Path/GeometryReader), matching interaction behavior.
 
 Supported interactions:
-- Range switching (`1D`, `7D`, `1M`, `3M`, `1Y`, `ALL` when available).
+- Range switching (`1D`, `7D`, `1M`, `3M`, `1Y`).
 - Drag/crosshair selection.
 - Floating tooltip and axis label.
 - Fullscreen analysis mode.
@@ -258,170 +258,147 @@ UI tests cover critical flows:
 - Theme-aware text/background contrast.
 
 ## Screenshots
-This section is ready for GitHub screenshots. Add your image files under:
-- `docs/screenshots/`
-
-Recommended naming:
-- `01-splash.png`
-- `02-market-cards.png`
-- `03-market-compact.png`
-- `04-details-chart.png`
-- `05-details-fullscreen-chart.png`
-- `06-favorites.png`
-- `07-portfolio.png`
-- `08-add-holding.png`
-- `09-alerts-list.png`
-- `10-alert-form.png`
-- `11-converter.png`
-- `12-search.png`
-- `13-insights.png`
-- `14-heatmap.png`
-- `15-categories.png`
-- `16-exchanges.png`
-- `17-dominance.png`
-- `18-notes.png`
-- `19-settings.png`
-- `20-widgets.png`
 
 ### 1) Animated Splash
 Caption: Animated in-app splash shown after static LaunchScreen.
 
-```md
-![Animated Splash](docs/screenshots/01-splash.png)
-```
+<img width="166" alt="image" src="https://github.com/user-attachments/assets/14e19a9a-938c-451a-ba23-c3d4ccd5ae1c" />
+
 
 ### 2) Market (Cards)
 Caption: Market cards mode with sorting, sections, and pull-to-refresh.
 
-```md
-![Market Cards](docs/screenshots/02-market-cards.png)
-```
+<img width="166" alt="image" src="https://github.com/user-attachments/assets/4e5c86d3-0dd2-4500-9db1-cac59b7e52a2" />
+
 
 ### 3) Market (Compact)
 Caption: Compact market mode for dense scanning.
 
-```md
-![Market Compact](docs/screenshots/03-market-compact.png)
-```
+<img width="166" alt="image" src="https://github.com/user-attachments/assets/5338860d-37d1-4bc3-8bbb-54417f80d5e9" />
+
 
 ### 4) Coin Details
 Caption: Coin header, chart, metrics, and primary actions.
 
-```md
-![Coin Details](docs/screenshots/04-details-chart.png)
-```
+<img width="166" alt="image" src="https://github.com/user-attachments/assets/2fe1cc6a-2fe5-430e-8193-ce888597171e" />
+<img width="166" alt="image" src="https://github.com/user-attachments/assets/d5fb02f0-323b-4010-9f61-217808a351fe" />
+
+
 
 ### 5) Fullscreen Chart
 Caption: Fullscreen terminal-like chart with pan/zoom and Y-scale modes.
 
-```md
-![Fullscreen Chart](docs/screenshots/05-details-fullscreen-chart.png)
-```
+<img width="166" height="2622" alt="image" src="https://github.com/user-attachments/assets/9e5b85b6-17b6-425c-bbee-4e789da209f3" />
+<img width="166" alt="image" src="https://github.com/user-attachments/assets/f1e9c11f-f461-462c-9fd5-7b541cf78558" />
+
+
 
 ### 6) Favorites
 Caption: Saved favorites with navigation to details.
 
-```md
-![Favorites](docs/screenshots/06-favorites.png)
-```
+<img width="166" alt="image" src="https://github.com/user-attachments/assets/a41cd79a-c6bb-4ed8-9e11-debd7743352b" />
+<img width="166" alt="image" src="https://github.com/user-attachments/assets/7a028df6-04ab-4c8d-a46e-9b618bc94619" />
+
+
 
 ### 7) Portfolio
 Caption: Portfolio summary, P/L, allocation donut, and holdings list.
 
-```md
-![Portfolio](docs/screenshots/07-portfolio.png)
-```
+<img width="166" alt="image" src="https://github.com/user-attachments/assets/bbc55495-99da-4a23-b4e3-040b00a2a934" />
+<img width="166" alt="image" src="https://github.com/user-attachments/assets/c6aa3aca-927a-4afc-a742-8586195df39f" />
+
+
 
 ### 8) Add/Edit Holding
 Caption: Holding form with decimal amount and avg buy price.
 
-```md
-![Add Holding](docs/screenshots/08-add-holding.png)
-```
+<img width="166" alt="image" src="https://github.com/user-attachments/assets/deae6b18-687e-460d-927a-824e05faeeb4" />
+
 
 ### 9) Notifications List
 Caption: Active notifications with state controls.
 
-```md
-![Notifications List](docs/screenshots/09-alerts-list.png)
-```
+<img width="166" alt="image" src="https://github.com/user-attachments/assets/9dd4bcb5-f1d7-421b-a077-b64ad4060281" />
+<img width="166" alt="image" src="https://github.com/user-attachments/assets/889b9729-d72c-4a5c-a12f-88a974ee72ca" />
+
 
 ### 10) Notification Form
 Caption: Create/edit notification with direction and cooldown.
 
-```md
-![Notification Form](docs/screenshots/10-alert-form.png)
-```
+<img width="166" alt="image" src="https://github.com/user-attachments/assets/f5283445-bdde-4de0-ab98-3c6ad30fbe71" />
+
 
 ### 11) Converter
 Caption: Coin-USD converter with quick amounts and history.
 
-```md
-![Converter](docs/screenshots/11-converter.png)
-```
+<img width="166" alt="image" src="https://github.com/user-attachments/assets/f9cbfc70-bacc-41ae-86d6-f93d822dac74" />
+<img width="166" alt="image" src="https://github.com/user-attachments/assets/f06ec8d4-d431-4a9e-9905-a8e407d8dd71" />
+
+
 
 ### 12) Search
 Caption: Dedicated search screen with recent queries.
 
-```md
-![Search](docs/screenshots/12-search.png)
-```
+<img width="166" alt="image" src="https://github.com/user-attachments/assets/4ccaa36d-6d34-455c-a78a-d1ba62c9c108" />
+<img width="166" alt="image" src="https://github.com/user-attachments/assets/922755d0-116b-4380-999d-33746caaf20c" />
+
+
 
 ### 13) Insights
 Caption: Market pulse and global analytics overview.
 
-```md
-![Insights](docs/screenshots/13-insights.png)
-```
+<img width="166" alt="image" src="https://github.com/user-attachments/assets/b5da9683-21fe-4bea-a42b-32d9ea4bc67d" />
+
 
 ### 14) Heatmap
 Caption: Market heatmap with scale and pin interactions.
 
-```md
-![Heatmap](docs/screenshots/14-heatmap.png)
-```
+<img width="166" alt="image" src="https://github.com/user-attachments/assets/05ac0d44-b00f-450f-aa8f-22756e8b5090" />
+
 
 ### 15) Categories
 Caption: Categories list and category-level market stats.
 
-```md
-![Categories](docs/screenshots/15-categories.png)
-```
+<img width="166" alt="image" src="https://github.com/user-attachments/assets/df8cca4b-f2fa-4bcf-8e27-8fd67087b8f9" />
+<img width="166" alt="image" src="https://github.com/user-attachments/assets/b7dada68-cc1f-43a9-b0b0-f7f993760242" />
+
+
 
 ### 16) Exchanges
 Caption: Exchange ranking and market information.
 
-```md
-![Exchanges](docs/screenshots/16-exchanges.png)
-```
+<img width="166" alt="image" src="https://github.com/user-attachments/assets/0defb8db-0e04-41e0-94ab-bb3fb688556b" />
+
 
 ### 17) Dominance
 Caption: Interactive dominance donut and global market section.
 
-```md
-![Dominance](docs/screenshots/17-dominance.png)
-```
+<img width="166" height="2622" alt="image" src="https://github.com/user-attachments/assets/a886cfe8-6832-43eb-896f-5dece2313e9f" />
+
 
 ### 18) Notes
 Caption: Notes library with grouped history and empty state.
 
-```md
-![Notes](docs/screenshots/18-notes.png)
-```
+<img width="166" alt="image" src="https://github.com/user-attachments/assets/cbc7cb5f-ae67-4b38-a79e-1f1fecd15ac4" />
+<img width="166" alt="image" src="https://github.com/user-attachments/assets/08128bd7-9a61-4da2-a0ad-3f7fb05b5f14" />
+<img width="166" alt="image" src="https://github.com/user-attachments/assets/dbf2dda1-9e61-486f-9254-b97562ff9651" />
+
+
+
 
 ### 19) Settings
 Caption: Theme, language, haptics, and app information.
 
-```md
-![Settings](docs/screenshots/19-settings.png)
-```
+<img width="166" alt="image" src="https://github.com/user-attachments/assets/d3280e4b-cb17-4e07-afa8-68f7fdd42405" />
+
 
 ### 20) Widgets
 Caption: Home screen widget variants.
 
-```md
-![Widgets](docs/screenshots/20-widgets.png)
-```
+<img width="166" alt="image" src="https://github.com/user-attachments/assets/f93b392e-dc05-4eb3-981c-4392c7156311" />
+<img width="166" alt="image" src="https://github.com/user-attachments/assets/8aecb196-6e94-43d4-a4d3-54c9163ecc11" />
+
+
 
 ## Roadmap
 - More advanced background refresh scheduling.
