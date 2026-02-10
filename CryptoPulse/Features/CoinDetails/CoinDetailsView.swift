@@ -4,10 +4,9 @@ struct CoinDetailsView: View {
     @StateObject var viewModel: CoinDetailsViewModel
     @EnvironmentObject private var appEnv: AppEnvironment
     @State private var showAddHolding = false
-    @State private var showCreateAlert = false
+    @State private var createAlertContext: CreateAlertContext?
     @State private var showFullScreenChart = false
     @State private var selectedPoint: PricePoint?
-    @State private var preselectedAlertPrice: Double?
     @FocusState private var notesFocused: Bool
 
     var body: some View {
@@ -68,7 +67,7 @@ struct CoinDetailsView: View {
                 viewModel.addHolding(amount: amount, avgBuyPrice: avg)
             }
         }
-        .sheet(isPresented: $showCreateAlert) {
+        .sheet(item: $createAlertContext) { context in
             let coin = viewModel.details.map {
                 CoinMarket(
                     id: $0.id,
@@ -84,7 +83,7 @@ struct CoinDetailsView: View {
                     lastUpdated: $0.lastUpdated
                 )
             }
-            AlertFormView(preselectedCoin: coin, marketRepository: nil, preselectedPrice: preselectedAlertPrice) { _, value, metric, direction, repeatMode, cooldown in
+            AlertFormView(preselectedCoin: coin, marketRepository: nil, preselectedPrice: context.preselectedPrice) { _, value, metric, direction, repeatMode, cooldown in
                 viewModel.createAlert(targetPrice: value, metric: metric, direction: direction, repeatMode: repeatMode, cooldownMinutes: cooldown)
             }
         }
@@ -110,8 +109,7 @@ struct CoinDetailsView: View {
                     Task { await viewModel.selectRange(range) }
                 },
                 onCreateAlert: { price in
-                    preselectedAlertPrice = price
-                    showCreateAlert = true
+                    presentCreateAlert(with: price)
                 },
                 onClose: { showFullScreenChart = false }
             )
@@ -254,8 +252,7 @@ struct CoinDetailsView: View {
             if let selected = selectedPoint {
                 let title = String(format: NSLocalizedString("Create Notification at %@", comment: ""), PriceFormatter.short(selected.price))
                 PrimaryButton(title: title, systemImage: "bell") {
-                    preselectedAlertPrice = selected.price
-                    showCreateAlert = true
+                    presentCreateAlert(with: selected.price)
                 }
             }
         }
@@ -302,9 +299,20 @@ struct CoinDetailsView: View {
                 showAddHolding = true
             }
             PrimaryButton(title: NSLocalizedString("Create Notification", comment: ""), systemImage: "bell") {
-                preselectedAlertPrice = viewModel.details?.currentPrice
-                showCreateAlert = true
+                presentCreateAlert(with: viewModel.details?.currentPrice)
             }
+        }
+    }
+
+    private func presentCreateAlert(with price: Double?) {
+        let context = CreateAlertContext(preselectedPrice: price)
+        if showFullScreenChart {
+            showFullScreenChart = false
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                createAlertContext = context
+            }
+        } else {
+            createAlertContext = context
         }
     }
 
@@ -404,6 +412,11 @@ extension DateFormatter {
         f.timeStyle = .short
         return f
     }()
+}
+
+private struct CreateAlertContext: Identifiable {
+    let id = UUID()
+    let preselectedPrice: Double?
 }
 
 #Preview {

@@ -108,9 +108,7 @@ struct AlertFormView: View {
         }
         .onAppear {
             selectedCoin = preselectedCoin
-            if let preselectedPrice {
-                targetPriceText = NumberParsing.string(from: preselectedPrice, maximumFractionDigits: 6)
-            }
+            applyPreselectedPrice()
             if let initialMetric {
                 metric = initialMetric
             }
@@ -123,6 +121,9 @@ struct AlertFormView: View {
             if let initialCooldownMinutes {
                 cooldownMinutes = initialCooldownMinutes
             }
+        }
+        .onChange(of: preselectedPrice) { _ in
+            applyPreselectedPrice()
         }
     }
 
@@ -143,5 +144,10 @@ struct AlertFormView: View {
         guard let coin else { return }
         onSave(coin, price, metric, direction, repeatMode, cooldownMinutes)
         dismiss()
+    }
+
+    private func applyPreselectedPrice() {
+        guard let preselectedPrice else { return }
+        targetPriceText = NumberParsing.string(from: preselectedPrice, maximumFractionDigits: 6)
     }
 }
