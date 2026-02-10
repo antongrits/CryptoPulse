@@ -181,11 +181,11 @@ struct CustomLineChartView: View {
         }
         let minRaw = prices.min() ?? 0
         let maxRaw = prices.max() ?? 1
-        if abs(maxRaw - minRaw) < 0.000_001 {
-            let pad = max(abs(maxRaw) * 0.03, 0.01)
+        if abs(maxRaw - minRaw) < 0.000_000_000_001 {
+            let pad = max(abs(maxRaw) * 0.03, 0.000_000_000_001)
             return (minRaw - pad, maxRaw + pad)
         }
-        let pad = (maxRaw - minRaw) * 0.12
+        let pad = max((maxRaw - minRaw) * 0.12, 0.000_000_000_001)
         return (minRaw - pad, maxRaw + pad)
     }
 

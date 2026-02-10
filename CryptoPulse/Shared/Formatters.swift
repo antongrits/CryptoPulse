@@ -21,19 +21,22 @@ enum PriceFormatter {
 
     static func string(_ value: Double?) -> String {
         guard let value else { return "—" }
-        return usd.string(from: NSNumber(value: value)) ?? "—"
+        return adaptiveCurrency(value, minimumFractionDigits: 2, maximumFractionDigits: 2)
     }
 
     static func short(_ value: Double?) -> String {
         guard let value else { return "—" }
-        return usdShort.string(from: NSNumber(value: value)) ?? "—"
+        return adaptiveCurrency(value, minimumFractionDigits: 0, maximumFractionDigits: 2)
     }
 
     static func compact(_ value: Double?, includeCurrencySymbol: Bool = true) -> String {
         guard let value else { return "—" }
         let absValue = abs(value)
         if absValue < 1_000 {
-            return includeCurrencySymbol ? short(value) : NumberParsing.string(from: value, maximumFractionDigits: 2)
+            if includeCurrencySymbol {
+                return short(value)
+            }
+            return adaptiveDecimal(value, minimumFractionDigits: 0, maximumFractionDigits: 2)
         }
         let (divisor, suffix): (Double, String) = {
             switch absValue {
@@ -52,6 +55,35 @@ enum PriceFormatter {
         let symbol = includeCurrencySymbol ? "$" : ""
         let sign = value < 0 ? "-" : ""
         return "\(sign)\(symbol)\(formatted)\(suffix)"
+    }
+
+    private static func adaptiveMaximumFractionDigits(for value: Double, baseMaximum: Int, cap: Int = 12) -> Int {
+        let absValue = abs(value)
+        guard absValue > 0 else { return baseMaximum }
+        if absValue >= 1 {
+            return baseMaximum
+        }
+        let required = Int(ceil(-log10(absValue))) + 2
+        return min(max(baseMaximum, required), cap)
+    }
+
+    private static func adaptiveCurrency(_ value: Double, minimumFractionDigits: Int, maximumFractionDigits: Int) -> String {
+        let f = (usd.copy() as? NumberFormatter) ?? usd
+        let adaptiveMax = adaptiveMaximumFractionDigits(for: value, baseMaximum: maximumFractionDigits)
+        f.maximumFractionDigits = adaptiveMax
+        f.minimumFractionDigits = min(minimumFractionDigits, adaptiveMax)
+        return f.string(from: NSNumber(value: value)) ?? "—"
+    }
+
+    private static func adaptiveDecimal(_ value: Double, minimumFractionDigits: Int, maximumFractionDigits: Int) -> String {
+        let f = NumberFormatter()
+        f.numberStyle = .decimal
+        f.locale = .current
+        f.usesGroupingSeparator = true
+        let adaptiveMax = adaptiveMaximumFractionDigits(for: value, baseMaximum: maximumFractionDigits)
+        f.maximumFractionDigits = adaptiveMax
+        f.minimumFractionDigits = min(minimumFractionDigits, adaptiveMax)
+        return f.string(from: NSNumber(value: value)) ?? String(value)
     }
 }
 

@@ -246,11 +246,11 @@ struct PriceChartIOS16: View {
         }
         let minPrice = points.map(\.price).min() ?? 0
         let maxPrice = points.map(\.price).max() ?? 1
-        if abs(maxPrice - minPrice) < 0.000_001 {
-            let padding = max(abs(maxPrice) * 0.03, 0.01)
+        if abs(maxPrice - minPrice) < 0.000_000_000_001 {
+            let padding = max(abs(maxPrice) * 0.03, 0.000_000_000_001)
             return (minPrice - padding)...(maxPrice + padding)
         }
-        let padding = (maxPrice - minPrice) * 0.12
+        let padding = max((maxPrice - minPrice) * 0.12, 0.000_000_000_001)
         return (minPrice - padding)...(maxPrice + padding)
     }
 }

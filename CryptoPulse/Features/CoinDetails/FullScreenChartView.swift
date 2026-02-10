@@ -336,11 +336,11 @@ private struct ZoomableChartContainer: View {
     private var fullYDomain: ClosedRange<Double> {
         let minPrice = points.map(\.price).min() ?? 0
         let maxPrice = points.map(\.price).max() ?? 1
-        if abs(maxPrice - minPrice) < 0.000_001 {
-            let pad = max(abs(maxPrice) * 0.03, 0.01)
+        if abs(maxPrice - minPrice) < 0.000_000_000_001 {
+            let pad = max(abs(maxPrice) * 0.03, 0.000_000_000_001)
             return (minPrice - pad)...(maxPrice + pad)
         }
-        let pad = (maxPrice - minPrice) * 0.12
+        let pad = max((maxPrice - minPrice) * 0.12, 0.000_000_000_001)
         return (minPrice - pad)...(maxPrice + pad)
     }
 

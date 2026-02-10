@@ -46,6 +46,8 @@ struct SettingsView: View {
                 }
             }
         }
+        .preferredColorScheme(appEnv.colorSchemeOverride)
+        .id("settings_theme_\(appEnv.theme.rawValue)")
     }
 
     private var appVersion: String {

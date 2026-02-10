@@ -3,6 +3,7 @@ import Combine
 
 struct MarketView: View {
     @StateObject var viewModel: MarketViewModel
+    @EnvironmentObject private var appEnv: AppEnvironment
     let coinRepository: CoinRepositoryProtocol
     let favoritesRepository: FavoritesRepositoryProtocol
     let portfolioRepository: PortfolioRepositoryProtocol
@@ -89,6 +90,8 @@ struct MarketView: View {
             }
             .sheet(isPresented: $showSettings) {
                 SettingsView()
+                    .environmentObject(appEnv)
+                    .preferredColorScheme(appEnv.colorSchemeOverride)
             }
         }
     }
