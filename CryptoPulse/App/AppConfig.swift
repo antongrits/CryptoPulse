@@ -3,12 +3,12 @@ import os
 
 enum AppConfig {
     private static let logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "CryptoPulse", category: "AppConfig")
+    private static let hardcodedCoinGeckoKey = "CG-KDgcsu7uLDg2W472kx28Hcen"
 
     static var coinGeckoApiKey: String {
-        let key = Bundle.main.object(forInfoDictionaryKey: "COINGECKO_API_KEY") as? String ?? ""
-        let trimmed = key.trimmingCharacters(in: .whitespacesAndNewlines)
+        let trimmed = hardcodedCoinGeckoKey.trimmingCharacters(in: .whitespacesAndNewlines)
         if trimmed.isEmpty {
-            logger.error("Missing COINGECKO_API_KEY in Info.plist (set via build setting COINGECKO_API_KEY).")
+            logger.error("Empty hardcoded CoinGecko API key.")
         }
         return trimmed
     }
@@ -27,10 +27,6 @@ enum AppConfig {
             return url
         }
         return nil
-    }
-
-    static var isConfigurationValid: Bool {
-        !coinGeckoApiKey.isEmpty
     }
 
     static var coinGeckoHeaders: [String: String] {

@@ -139,7 +139,6 @@ CryptoPulse/
   CryptoPulseUITests/          # UI tests
   CryptoPulseWidgets/          # Widget extension
   CryptoPulse.xcodeproj
-  Secrets.xcconfig             # Local secrets (ignored)
 ```
 
 ## Data Providers and API Policy
@@ -149,7 +148,8 @@ Primary:
 - CoinGecko Demo API (`x-cg-demo-api-key`).
 
 Fallback strategy:
-- Non-critical analytics endpoints can fallback to alternative providers when unavailable on demo limits.
+- CoinGecko request retry and cache-first rendering are used when demo limits are hit.
+- Non-critical analytics endpoints can fallback to CoinPaprika when unavailable on CoinGecko demo limits.
 - UI gracefully shows unavailable state if data is not provided by plan.
 
 Important:
@@ -204,19 +204,8 @@ Widget extension provides:
 - Trigger checks run on app launch and relevant refresh events.
 
 ## Configuration
-### API Key (No Hardcoding)
-`Info.plist` contains:
-- `COINGECKO_API_KEY = $(COINGECKO_API_KEY)`
-
-Runtime access:
-- `AppConfig.coinGeckoApiKey` reads from `Bundle.main.object(forInfoDictionaryKey:)`.
-- Missing/empty key shows configuration error screen and logs reason.
-
-### Required local file
-Create `Secrets.xcconfig` in repo root (already in `.gitignore`), for example:
-```xcconfig
-COINGECKO_API_KEY = CG-XXXXXXXXXXXX
-```
+### API Key
+- `AppConfig.coinGeckoApiKey` is defined directly in code.
 
 ## Build and Run
 ### Xcode
@@ -250,7 +239,7 @@ UI tests cover critical flows:
 - Add favorite -> open Favorites -> verify item.
 
 ## Quality Checklist
-- No API key hardcoded in Swift source.
+- API key is provided directly in Swift source.
 - No force-unwrap in critical runtime paths.
 - Offline mode with cached fallback.
 - iOS 15 compatibility paths for navigation/charts.

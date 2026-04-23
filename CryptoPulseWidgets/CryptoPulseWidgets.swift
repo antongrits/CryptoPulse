@@ -243,8 +243,11 @@ struct MarketWidgetView: View {
 }
 
 enum WidgetConfig {
+    private static let hardcodedCoinGeckoKey = "CG-KDgcsu7uLDg2W472kx28Hcen"
+
     static var coinGeckoApiKey: String? {
-        Bundle.main.object(forInfoDictionaryKey: "COINGECKO_API_KEY") as? String
+        let trimmed = hardcodedCoinGeckoKey.trimmingCharacters(in: .whitespacesAndNewlines)
+        return trimmed.isEmpty ? nil : trimmed
     }
 
     static var coinGeckoBaseURL: URL {

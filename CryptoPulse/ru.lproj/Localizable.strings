@@ -132,16 +132,19 @@
 "Appearance" = "Внешний вид";
 "Feedback" = "Обратная связь";
 "About" = "О приложении";
+"Legal" = "Правовая информация";
 "Theme" = "Тема";
 "Haptics" = "Виброотклик";
+"Privacy Policy" = "Политика конфиденциальности";
 "System" = "Системный";
 "Light" = "Светлая";
 "Dark" = "Тёмная";
 "Version" = "Версия";
 "Data Source: CoinGecko" = "Источник данных: CoinGecko";
+"Powered by CoinGecko" = "При поддержке CoinGecko";
+"Data by Coinparika.com" = "Данные: Coinparika.com";
+"All names and logos are trademarks of their respective owners. This app is not affiliated with them." = "Все названия и логотипы являются товарными знаками их правообладателей. Приложение не аффилировано с ними.";
 
-"Configuration Error" = "Ошибка конфигурации";
-"Missing COINGECKO_API_KEY.\nPlease set it via Secrets.xcconfig and Info.plist build setting." = "Отсутствует COINGECKO_API_KEY.\nЗадайте его через Secrets.xcconfig и Info.plist.";
 "No internet connection." = "Нет подключения к интернету.";
 "Too many requests. Please try again later." = "Слишком много запросов. Попробуйте позже.";
 "Server error (%d)." = "Ошибка сервера (%d).";

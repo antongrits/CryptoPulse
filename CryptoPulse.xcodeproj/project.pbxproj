@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		175B96E0280D6513F22DD85B /* CryptoPulseWidgets.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 355DEE6C34941D61AEFC0128 /* CryptoPulseWidgets.appex */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		175B96E0280D6513F22DD85B /* CryptoPulseWidgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 355DEE6C34941D61AEFC0128 /* CryptoPulseWidgets.appex */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		306005A12F39F3F80067FC13 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 306005A02F39F3F80067FC13 /* RealmSwift */; };
 		306009A12F3A99990067FC13 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 306005A02F39F3F80067FC13 /* RealmSwift */; };
 		306009A22F3A9AAB0067FC13 /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 306005A02F39F3F80067FC13 /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -42,15 +42,15 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		691E180700B2B13E771666FE /* Embed App Extensions */ = {
+		691E180700B2B13E771666FE /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				175B96E0280D6513F22DD85B /* CryptoPulseWidgets.appex in Embed App Extensions */,
+				175B96E0280D6513F22DD85B /* CryptoPulseWidgets.appex in Embed Foundation Extensions */,
 			);
-			name = "Embed App Extensions";
+			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -59,7 +59,6 @@
 		306005752F39EEFB0067FC13 /* CryptoPulse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoPulse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		306005822F39EEFE0067FC13 /* CryptoPulseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptoPulseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3060058C2F39EEFE0067FC13 /* CryptoPulseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptoPulseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		306005A22F39F5D60067FC13 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 		355DEE6C34941D61AEFC0128 /* CryptoPulseWidgets.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CryptoPulseWidgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -151,7 +150,6 @@
 		3060056C2F39EEFB0067FC13 = {
 			isa = PBXGroup;
 			children = (
-				306005A22F39F5D60067FC13 /* Secrets.xcconfig */,
 				306005772F39EEFB0067FC13 /* CryptoPulse */,
 				306005852F39EEFE0067FC13 /* CryptoPulseTests */,
 				3060058F2F39EEFE0067FC13 /* CryptoPulseUITests */,
@@ -190,7 +188,7 @@
 				306005712F39EEFB0067FC13 /* Sources */,
 				306005722F39EEFB0067FC13 /* Frameworks */,
 				306009A32F3A9AAB0067FC13 /* Embed Frameworks */,
-				691E180700B2B13E771666FE /* Embed App Extensions */,
+				691E180700B2B13E771666FE /* Embed Foundation Extensions */,
 				306005732F39EEFB0067FC13 /* Resources */,
 			);
 			buildRules = (
@@ -287,7 +285,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 2620;
-				LastUpgradeCheck = 2620;
+				LastUpgradeCheck = 2640;
 				TargetAttributes = {
 					306005742F39EEFB0067FC13 = {
 						CreatedOnToolsVersion = 26.2;
@@ -410,10 +408,10 @@
 /* Begin XCBuildConfiguration section */
 		306005942F39EEFE0067FC13 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 306005A22F39F5D60067FC13 /* Secrets.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -468,6 +466,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -475,10 +474,10 @@
 		};
 		306005952F39EEFE0067FC13 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 306005A22F39F5D60067FC13 /* Secrets.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -526,6 +525,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -544,14 +544,13 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CryptoPulse/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Crypto Pulse";
-				INFOPLIST_KEY_COINGECKO_API_KEY = "$(COINGECKO_API_KEY)";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -586,14 +585,13 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CryptoPulse/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Crypto Pulse";
-				INFOPLIST_KEY_COINGECKO_API_KEY = "$(COINGECKO_API_KEY)";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -792,8 +790,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift";
 			requirement = {
-				branch = master;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 20.0.4;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

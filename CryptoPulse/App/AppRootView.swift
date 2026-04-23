@@ -9,12 +9,8 @@ struct AppRootView: View {
     }
 
     var body: some View {
-        let isMock = ProcessInfo.processInfo.arguments.contains("-use-mock-data") || ProcessInfo.processInfo.arguments.contains("-ui-testing")
         ZStack {
-            if !AppConfig.isConfigurationValid && !isMock {
-                ConfigurationErrorView()
-                    .transition(.opacity)
-            } else if showSplash {
+            if showSplash {
                 AnimatedSplashView {
                     withAnimation(.easeInOut(duration: 0.4)) {
                         showSplash = false
@@ -28,24 +24,6 @@ struct AppRootView: View {
         }
         .background(AppBackgroundView())
         .animation(.easeInOut(duration: 0.4), value: showSplash)
-    }
-}
-
-struct ConfigurationErrorView: View {
-    var body: some View {
-        VStack(spacing: AppSpacing.md) {
-            Image(systemName: "exclamationmark.triangle.fill")
-                .font(.system(size: 42))
-                .foregroundColor(.orange)
-            Text(NSLocalizedString("Configuration Error", comment: ""))
-                .font(AppTypography.title)
-            Text(NSLocalizedString("Missing COINGECKO_API_KEY.\nPlease set it via Secrets.xcconfig and Info.plist build setting.", comment: ""))
-                .font(AppTypography.body)
-                .multilineTextAlignment(.center)
-                .foregroundColor(AppColors.textSecondary)
-                .padding(.horizontal)
-        }
-        .padding(AppSpacing.lg)
     }
 }
 

@@ -3,6 +3,9 @@ import SwiftUI
 struct SettingsView: View {
     @EnvironmentObject private var appEnv: AppEnvironment
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.openURL) private var openURL
+
+    private let privacyPolicyURL = URL(string: "https://example.com/privacy-policy")!
 
     var body: some View {
         NavigationView {
@@ -30,13 +33,59 @@ struct SettingsView: View {
                 }
 
                 Section(NSLocalizedString("About", comment: "")) {
-                    HStack {
-                        Text(NSLocalizedString("Version", comment: ""))
-                        Spacer()
-                        Text(appVersion)
-                            .foregroundColor(.secondary)
+                    CardView(padding: AppSpacing.md) {
+                        VStack(alignment: .leading, spacing: AppSpacing.md) {
+                            HStack {
+                                Text(NSLocalizedString("Version", comment: ""))
+                                    .font(AppTypography.body)
+                                    .foregroundColor(AppColors.textPrimary)
+                                Spacer()
+                                Text(appVersion)
+                                    .font(AppTypography.body)
+                                    .foregroundColor(AppColors.textSecondary)
+                            }
+
+                            Divider()
+
+                            VStack(alignment: .leading, spacing: AppSpacing.sm) {
+                                Text(NSLocalizedString("Data Source: CoinGecko", comment: ""))
+                                    .font(AppTypography.body)
+                                    .foregroundColor(AppColors.textPrimary)
+                                Text(NSLocalizedString("Powered by CoinGecko", comment: ""))
+                                    .font(AppTypography.caption)
+                                    .foregroundColor(AppColors.textSecondary)
+                                Text(NSLocalizedString("Data by Coinparika.com", comment: ""))
+                                    .font(AppTypography.caption)
+                                    .foregroundColor(AppColors.textSecondary)
+                                Text(NSLocalizedString("All names and logos are trademarks of their respective owners. This app is not affiliated with them.", comment: ""))
+                                    .font(AppTypography.caption)
+                                    .foregroundColor(AppColors.textSecondary)
+                                    .fixedSize(horizontal: false, vertical: true)
+                            }
+
+                            Button {
+                                openURL(privacyPolicyURL)
+                            } label: {
+                                HStack(spacing: AppSpacing.sm) {
+                                    Text(NSLocalizedString("Privacy Policy", comment: ""))
+                                        .font(AppTypography.body.weight(.semibold))
+                                    Spacer()
+                                    Image(systemName: "arrow.up.right.square")
+                                        .font(.system(size: 14, weight: .semibold))
+                                }
+                                .padding(.horizontal, AppSpacing.md)
+                                .padding(.vertical, AppSpacing.sm + 2)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 10, style: .continuous)
+                                        .fill(AppColors.accent.opacity(0.14))
+                                )
+                            }
+                            .buttonStyle(.plain)
+                            .accessibilityIdentifier("privacy_policy_button")
+                        }
                     }
-                    Text(NSLocalizedString("Data Source: CoinGecko", comment: ""))
+                    .listRowInsets(EdgeInsets(top: AppSpacing.xs, leading: AppSpacing.md, bottom: AppSpacing.xs, trailing: AppSpacing.md))
+                    .listRowBackground(Color.clear)
                 }
             }
             .navigationTitle(NSLocalizedString("Settings", comment: ""))

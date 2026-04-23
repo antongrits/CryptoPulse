@@ -132,16 +132,19 @@
 "Appearance" = "Знешні выгляд";
 "Feedback" = "Зваротная сувязь";
 "About" = "Пра прыкладанне";
+"Legal" = "Прававая інфармацыя";
 "Theme" = "Тэма";
 "Haptics" = "Вібраадгук";
+"Privacy Policy" = "Палітыка прыватнасці";
 "System" = "Сістэмны";
 "Light" = "Светлая";
 "Dark" = "Цёмная";
 "Version" = "Версія";
 "Data Source: CoinGecko" = "Крыніца даных: CoinGecko";
+"Powered by CoinGecko" = "Пры падтрымцы CoinGecko";
+"Data by Coinparika.com" = "Даныя: Coinparika.com";
+"All names and logos are trademarks of their respective owners. This app is not affiliated with them." = "Усе назвы і лагатыпы з'яўляюцца таварнымі знакамі іх праваўладальнікаў. Прыкладанне не афілявана з імі.";
 
-"Configuration Error" = "Памылка канфігурацыі";
-"Missing COINGECKO_API_KEY.\nPlease set it via Secrets.xcconfig and Info.plist build setting." = "Адсутнічае COINGECKO_API_KEY.\nЗадайце яго праз Secrets.xcconfig і Info.plist.";
 "No internet connection." = "Няма падключэння да інтэрнэту.";
 "Too many requests. Please try again later." = "Занадта шмат запытаў. Паспрабуйце пазней.";
 "Server error (%d)." = "Памылка сервера (%d).";

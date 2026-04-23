@@ -132,13 +132,16 @@
 "Appearance" = "Appearance";
 "Feedback" = "Feedback";
 "About" = "About";
+"Legal" = "Legal";
 "Theme" = "Theme";
 "Haptics" = "Haptics";
+"Privacy Policy" = "Privacy Policy";
 "Version" = "Version";
 "Data Source: CoinGecko" = "Data Source: CoinGecko";
+"Powered by CoinGecko" = "Powered by CoinGecko";
+"Data by Coinparika.com" = "Data by Coinparika.com";
+"All names and logos are trademarks of their respective owners. This app is not affiliated with them." = "All names and logos are trademarks of their respective owners. This app is not affiliated with them.";
 
-"Configuration Error" = "Configuration Error";
-"Missing COINGECKO_API_KEY.\nPlease set it via Secrets.xcconfig and Info.plist build setting." = "Missing COINGECKO_API_KEY.\nPlease set it via Secrets.xcconfig and Info.plist build setting.";
 "No internet connection." = "No internet connection.";
 "Too many requests. Please try again later." = "Too many requests. Please try again later.";
 "Server error (%d)." = "Server error (%d).";
