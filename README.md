@@ -277,7 +277,7 @@ Caption: Coin header, chart, metrics, and primary actions.
 ### 5) Fullscreen Chart
 Caption: Fullscreen terminal-like chart with pan/zoom and Y-scale modes.
 
-<img width="166" height="2622" alt="image" src="https://github.com/user-attachments/assets/9e5b85b6-17b6-425c-bbee-4e789da209f3" />
+<img width="166" alt="image" src="https://github.com/user-attachments/assets/9e5b85b6-17b6-425c-bbee-4e789da209f3" />
 <img width="166" alt="image" src="https://github.com/user-attachments/assets/f1e9c11f-f461-462c-9fd5-7b541cf78558" />
 
 
