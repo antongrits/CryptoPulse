@@ -362,7 +362,7 @@ Caption: Exchange ranking and market information.
 ### 17) Dominance
 Caption: Interactive dominance donut and global market section.
 
-<img width="166" height="2622" alt="image" src="https://github.com/user-attachments/assets/a886cfe8-6832-43eb-896f-5dece2313e9f" />
+<img width="166" alt="image" src="https://github.com/user-attachments/assets/a886cfe8-6832-43eb-896f-5dece2313e9f" />
 
 
 ### 18) Notes
